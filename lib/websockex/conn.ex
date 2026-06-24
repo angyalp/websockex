@@ -369,12 +369,7 @@ defmodule WebSockex.Conn do
   # Crazy SSL Stuff (It will be normal SSL stuff when I figure out Erlang's ssl)
 
   defp ssl_connection_options(%{ssl_options: ssl_options}) when not is_nil(ssl_options) do
-    [
-      mode: :binary,
-      active: false,
-      packet: 0
-    ]
-    |> Keyword.merge(ssl_options)
+    ssl_options
   end
 
   defp ssl_connection_options(%{insecure: true}) do
